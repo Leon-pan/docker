@@ -1,4 +1,5 @@
 #!/bin/bash
+#命令执行格式
 #./docker_packer.sh tonglu_webapp:1.1.0
 name=$1
 cd /home/docker
