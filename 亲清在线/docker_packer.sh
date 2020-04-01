@@ -17,7 +17,7 @@ sudo docker save -o ./${SOURCE_IMAGE}_${TAG}.tar ${PRE}${SOURCE_IMAGE}:${TAG}
 sudo chown jenkins:jenkins ./${SOURCE_IMAGE}_${TAG}.tar
 #删除镜像
 #sudo docker rmi -f $(docker images | grep registry.citybrain.local/a6013-pre/py_330124_001_gov_backend | awk '{print $3}')
-sudo docker rmi -f $(docker images | grep ${PRE}${SOURCE_IMAGE} | awk '{print $3}')
+sudo docker rmi $(docker images | grep ${PRE}${SOURCE_IMAGE}:${TAG})
 #删除无用镜像
 #echo y| sudo docker image prune
 
