@@ -2,8 +2,12 @@
 PRE=registry.citybrain.local/a6013-pre/
 SOURCE_IMAGE=py_330124_001_gov_backend
 TAG=1.0.$BUILD_ID
+BUILD_NAME=
 
 cp /home/dockerfile_backend_qqzx $WORKSPACE/target/dockerfile
+if [ ! -z ${BUILD_NAME} ]; then
+sed -i s/policy-back-1.0.0.jar/${BUILD_NAME}/ $WORKSPACE/dockerfile
+fi
 cd $WORKSPACE/target
 sudo docker version
 #打包docker镜像

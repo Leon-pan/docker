@@ -2,6 +2,7 @@
 PRE=registry.citybrain.local/a6013-pre/
 SOURCE_IMAGE=py_330124_001_gov_pc
 TAG=1.0.$BUILD_ID
+BUILD_NAME=xhWater
 
 node -v
 npm -v
@@ -10,7 +11,9 @@ cnpm i
 #执行构建命令
 npm run build
 cp /home/dockerfile_v1.0 $WORKSPACE/dockerfile
-sed -i s/dist/xhWater/ $WORKSPACE/dockerfile
+if [ ! -z ${BUILD_NAME} ]; then
+sed -i s/dist/${BUILD_NAME}/ $WORKSPACE/dockerfile
+fi
 cp /home/nginx.conf_v1.0 $WORKSPACE/nginx.conf
 cp /home/default.conf_v1.0 $WORKSPACE/default.conf
 cd $WORKSPACE
