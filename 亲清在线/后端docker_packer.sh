@@ -2,7 +2,7 @@
 PRE=registry.citybrain.local/a6013-pre/
 SOURCE_IMAGE=py_330124_001_gov_backend
 TAG=1.0.$BUILD_ID
-BUILD_NAME=
+BUILD_NAME=policy-back-1.0.0.jar
 
 cp /home/dockerfile_backend_qqzx $WORKSPACE/target/dockerfile
 if [ ! -z ${BUILD_NAME} ]; then

@@ -2,7 +2,7 @@
 PRE=registry.citybrain.local/a6013-pre/
 SOURCE_IMAGE=py_330124_001_gov_pc
 TAG=1.0.$BUILD_ID
-BUILD_NAME=xhWater
+BUILD_NAME=dist
 
 node -v
 npm -v
