@@ -6,7 +6,7 @@ BUILD_NAME=policy-back-1.0.0.jar
 
 cp /home/dockerfile_backend_qqzx $WORKSPACE/target/dockerfile
 if [ ! -z ${BUILD_NAME} ]; then
-sed -i s/policy-back-1.0.0.jar/${BUILD_NAME}/ $WORKSPACE/dockerfile
+sed -i s/policy-back-1.0.0.jar/${BUILD_NAME}/ $WORKSPACE/target/dockerfile
 fi
 cd $WORKSPACE/target
 sudo docker version
@@ -20,7 +20,7 @@ sudo docker save -o ./${SOURCE_IMAGE}_${TAG}.tar ${PRE}${SOURCE_IMAGE}:${TAG}
 sudo chown jenkins:jenkins ./${SOURCE_IMAGE}_${TAG}.tar
 #删除镜像
 #sudo docker rmi -f $(docker images | grep registry.citybrain.local/a6013-pre/py_330124_001_gov_backend | awk '{print $3}')
-sudo docker rmi ${PRE}${SOURCE_IMAGE}:${TAG}
+sudo docker rmi ${PRE}${SOURCE_IMAGE}:${TAG} && exit 0
 #删除无用镜像
 #echo y| sudo docker image prune
 
