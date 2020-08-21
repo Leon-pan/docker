@@ -1,29 +1,29 @@
-# Citybrain APP Dockerfile 
-# Version 1.0 
+# Citybrain APP Dockerfile
+# Version 1.0
 # Base images 基础镜像
- 
-FROM openjdk:8-alpine 
- 
+
+FROM openjdk:8-alpine
+
 #LABEL 维护者信息
- 
-LABEL yqgcy city_brain 
- 
+
+LABEL yqgcy city_brain
+
 #ENV 变量
- 
-ENV TZ='Asia/Shanghai' 
-ENV DATA_API_ADDRESS="" 
-ENV APP_LOG_PATH=/citybrain/cockpit-back/logs 
- 
-#RUN 
-RUN mkdir -p ${APP_LOG_PATH} 
- 
-#COPY 
-COPY ./cockpit-back-1.0.0.jar /root 
- 
+
+ENV TZ='Asia/Shanghai'
+ENV DATA_API_ADDRESS=""
+ENV APP_LOG_PATH=/citybrain/cockpit-back/logs
+
+#RUN
+RUN mkdir -p ${APP_LOG_PATH}
+
+#COPY
+COPY ./cockpit-back-1.0.0.jar /root
+
 #EXPOSE 服务端口
- 
-EXPOSE 8888 
- 
+
+EXPOSE 8888
+
 #ENTRYPOINT 启动命令
- 
-ENTRYPOINT java -jar  /root/cockpit-back-1.0.0.jar
+
+ENTRYPOINT java -jar /root/cockpit-back-1.0.0.jar
