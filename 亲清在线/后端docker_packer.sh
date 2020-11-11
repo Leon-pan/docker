@@ -3,12 +3,13 @@ PRE=registry.citybrain.local/a6013-pre/
 SOURCE_IMAGE=py_330124_001_gov_backend
 TAG=1.0.$BUILD_ID
 BUILD_NAME=policy-back-1.0.0.jar
+WORK_SPACE=$WORKSPACE/target
 
-cp /home/dockerfile_backend_qqzx $WORKSPACE/target/dockerfile
+cp /home/dockerfile_backend_qqzx $WORK_SPACE/dockerfile
 if [ ! -z ${BUILD_NAME} ]; then
-sed -i s/policy-back-1.0.0.jar/${BUILD_NAME}/ $WORKSPACE/target/dockerfile
+sed -i s/policy-back-1.0.0.jar/${BUILD_NAME}/ $WORK_SPACE/dockerfile
 fi
-cd $WORKSPACE/target
+cd $WORK_SPACE
 sudo docker version
 #打包docker镜像
 #sudo docker build --rm --tag py_330124_001_gov_backend:1.0.$BUILD_ID .
